@@ -261,23 +261,29 @@ const Index = () => {
         </section>
 
         <Dialog open={isGalleryOpen} onOpenChange={setIsGalleryOpen}>
-          <DialogContent className="p-0 border-0 bg-transparent max-w-none w-screen h-screen sm:rounded-none">
+          <DialogContent className="w-auto max-w-[90vw] p-0 bg-transparent border-none shadow-none">
             <Carousel
               opts={{
                 startIndex: selectedImageIndex,
                 loop: true,
               }}
-              className="w-full h-full"
+              className="w-full"
             >
-              <CarouselContent className="h-full -ml-0">
+              <CarouselContent>
                 {galleryImages.map((image, index) => (
-                  <CarouselItem key={index} className="h-full pl-0">
-                    <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
+                  <CarouselItem key={index}>
+                    <div className="flex justify-center items-center">
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-auto h-auto max-h-[85vh] object-contain rounded-lg"
+                      />
+                    </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-4" />
-              <CarouselNext className="right-4" />
+              <CarouselPrevious />
+              <CarouselNext />
             </Carousel>
           </DialogContent>
         </Dialog>
