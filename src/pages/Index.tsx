@@ -104,37 +104,55 @@ const Index = () => {
               От проектирования до реализации — мы предлагаем полный спектр услуг по озеленению.
             </p>
             <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              <Card className="transition-transform duration-300 hover:scale-105">
+              <Card className="transition-transform duration-300 hover:scale-105 flex flex-col">
                 <CardHeader className="flex flex-row items-center gap-4">
                   <div className="p-3 bg-primary/10 rounded-full">
                     <Flower className="h-6 w-6 text-primary" />
                   </div>
                   <CardTitle>Ландшафтный дизайн</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p>Креативные и индивидуальные проекты, отражающие ваш стиль и повышающие ценность вашей недвижимости.</p>
+                <CardContent className="flex-1 text-muted-foreground">
+                  <p className="mb-4">Разработка уникальной концепции вашего сада, сочетающей красоту и функциональность.</p>
+                  <ul className="space-y-2 list-disc list-inside">
+                    <li>3D-визуализация проекта</li>
+                    <li>Подбор растений под ваш климат</li>
+                    <li>Проектирование освещения и полива</li>
+                    <li>Создание зон отдыха и барбекю</li>
+                  </ul>
                 </CardContent>
               </Card>
-              <Card className="transition-transform duration-300 hover:scale-105">
+              <Card className="transition-transform duration-300 hover:scale-105 flex flex-col">
                 <CardHeader className="flex flex-row items-center gap-4">
                   <div className="p-3 bg-primary/10 rounded-full">
                     <Trees className="h-6 w-6 text-primary" />
                   </div>
                   <CardTitle>Посадка и установка</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p>Профессиональная посадка растений, деревьев, укладка покрытий и установка систем полива.</p>
+                <CardContent className="flex-1 text-muted-foreground">
+                  <p className="mb-4">Качественное воплощение проекта в жизнь с использованием лучших материалов и растений.</p>
+                  <ul className="space-y-2 list-disc list-inside">
+                    <li>Посадка деревьев и кустарников</li>
+                    <li>Устройство рулонных и посевных газонов</li>
+                    <li>Монтаж дорожек, патио и малых форм</li>
+                    <li>Установка систем автополива</li>
+                  </ul>
                 </CardContent>
               </Card>
-              <Card className="transition-transform duration-300 hover:scale-105">
+              <Card className="transition-transform duration-300 hover:scale-105 flex flex-col">
                 <CardHeader className="flex flex-row items-center gap-4">
                   <div className="p-3 bg-primary/10 rounded-full">
                     <Sun className="h-6 w-6 text-primary" />
                   </div>
                   <CardTitle>Уход за садом</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p>Регулярный уход, чтобы ваш сад оставался здоровым и красивым в любое время года.</p>
+                <CardContent className="flex-1 text-muted-foreground">
+                   <p className="mb-4">Комплексный уход, который обеспечит здоровье и великолепие вашего сада на долгие годы.</p>
+                  <ul className="space-y-2 list-disc list-inside">
+                    <li>Сезонная обрезка и формирование крон</li>
+                    <li>Борьба с вредителями и болезнями</li>
+                    <li>Подкормка и аэрация газона</li>
+                    <li>Подготовка сада к зиме и весне</li>
+                  </ul>
                 </CardContent>
               </Card>
             </div>
