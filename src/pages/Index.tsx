@@ -1,12 +1,138 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Leaf, Flower, Trees, Sun } from "lucide-react";
 
 const Index = () => {
+  const galleryImages = [
+    { src: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800&auto=format&fit=crop", alt: "Lush garden path" },
+    { src: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&auto=format&fit=crop", alt: "Garden with waterfall" },
+    { src: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=800&auto=format&fit=crop", alt: "Mountain landscape" },
+    { src: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&auto=format&fit=crop", alt: "Pine trees in a garden" },
+    { src: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=800&auto=format&fit=crop", alt: "Sunlight through leaves" },
+    { src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&auto=format&fit=crop", alt: "Scenic mountain view" },
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="flex flex-col min-h-screen bg-background text-foreground">
+      {/* Header */}
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container flex h-14 items-center">
+          <div className="mr-4 flex items-center">
+            <Leaf className="h-6 w-6 mr-2 text-green-600" />
+            <span className="font-bold text-lg">good garden</span>
+          </div>
+          <nav className="flex items-center space-x-6 text-sm font-medium ml-auto">
+            <a href="#services" className="transition-colors hover:text-foreground/80 text-foreground/60">Услуги</a>
+            <a href="#gallery" className="transition-colors hover:text-foreground/80 text-foreground/60">Галерея</a>
+            <a href="#contact" className="transition-colors hover:text-foreground/80 text-foreground/60">Контакты</a>
+          </nav>
+        </div>
+      </header>
+
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section
+          className="relative h-[60vh] md:h-[80vh] flex items-center justify-center text-center text-white bg-cover bg-center"
+          style={{ backgroundImage: "url(https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=1920&auto=format&fit=crop)" }}
+        >
+          <div className="absolute inset-0 bg-black/50" />
+          <div className="relative z-10 p-4">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight">Превращаем ваш участок в оазис</h1>
+            <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-white/90">
+              Мы создаем красивые, экологичные и функциональные ландшафты, которые вы полюбите.
+            </p>
+            <Button size="lg" className="mt-8">Получить бесплатную консультацию</Button>
+          </div>
+        </section>
+
+        {/* Services Section */}
+        <section id="services" className="py-16 md:py-24">
+          <div className="container">
+            <h2 className="text-3xl md:text-4xl font-bold text-center">Наши услуги</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground">
+              От проектирования до реализации — мы предлагаем полный спектр услуг по озеленению.
+            </p>
+            <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              <Card>
+                <CardHeader className="flex flex-row items-center gap-4">
+                  <div className="p-3 bg-primary/10 rounded-full">
+                    <Flower className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle>Ландшафтный дизайн</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>Креативные и индивидуальные проекты, отражающие ваш стиль и повышающие ценность вашей недвижимости.</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="flex flex-row items-center gap-4">
+                  <div className="p-3 bg-primary/10 rounded-full">
+                    <Trees className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle>Посадка и установка</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>Профессиональная посадка растений, деревьев, укладка покрытий и установка систем полива.</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="flex flex-row items-center gap-4">
+                  <div className="p-3 bg-primary/10 rounded-full">
+                    <Sun className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle>Уход за садом</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>Регулярный уход, чтобы ваш сад оставался здоровым и красивым в любое время года.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Gallery Section */}
+        <section id="gallery" className="py-16 md:py-24 bg-muted">
+          <div className="container">
+            <h2 className="text-3xl md:text-4xl font-bold text-center">Наши работы</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground">
+              Взгляните на некоторые из прекрасных садов, которые мы создали.
+            </p>
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-4">
+              {galleryImages.map((image, index) => (
+                <div key={index} className="overflow-hidden rounded-lg">
+                  <img src={image.src} alt={image.alt} className="h-full w-full object-cover aspect-square transition-transform duration-300 hover:scale-105" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section id="contact" className="py-16 md:py-24">
+          <div className="container max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center">Свяжитесь с нами</h2>
+            <p className="mt-4 text-center text-muted-foreground">
+              Готовы начать свой проект? Напишите нам сегодня.
+            </p>
+            <form className="mt-12 space-y-4">
+              <Input placeholder="Ваше имя" />
+              <Input type="email" placeholder="Ваш Email" />
+              <Textarea placeholder="Ваше сообщение" />
+              <Button type="submit" className="w-full">Отправить сообщение</Button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-muted">
+        <div className="container py-6 text-center text-sm text-muted-foreground">
+          © {new Date().getFullYear()} good garden. Все права защищены.
+        </div>
+      </footer>
     </div>
   );
 };
