@@ -87,6 +87,10 @@
 }
 
 @layer base {
+  html {
+    @apply scroll-smooth scroll-pt-[3.5rem];
+  }
+  
   * {
     @apply border-border;
   }
