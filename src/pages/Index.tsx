@@ -3,9 +3,36 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Leaf, Flower, Trees, Sun, Star } from "lucide-react";
+import { Leaf, Flower, Trees, Sun, Star, Mail, Phone } from "lucide-react";
+import { useState } from "react";
+import { toast } from "@/hooks/use-toast";
 
 const Index = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      toast({
+        title: "Ошибка",
+        description: "Пожалуйста, заполните все поля.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    toast({
+      title: "Сообщение отправлено!",
+      description: "Спасибо! Мы скоро свяжемся с вами.",
+    });
+
+    setName("");
+    setEmail("");
+    setMessage("");
+  };
+
   const galleryImages = [
     { src: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800&auto=format&fit=crop", alt: "Lush garden path" },
     { src: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&auto=format&fit=crop", alt: "Garden with waterfall" },
@@ -163,10 +190,39 @@ const Index = () => {
             <p className="mt-4 text-center text-muted-foreground">
               Готовы начать свой проект? Напишите нам сегодня.
             </p>
-            <form className="mt-12 space-y-6">
-              <Input placeholder="Ваше имя" className="h-12 text-base" />
-              <Input type="email" placeholder="Ваш Email" className="h-12 text-base" />
-              <Textarea placeholder="Ваше сообщение" className="min-h-[150px] text-base" />
+            <div className="mt-8 flex flex-col md:flex-row justify-center items-center gap-x-12 gap-y-4">
+              <a href="mailto:contact@good.garden" className="flex items-center gap-3 transition-colors hover:text-primary">
+                <Mail className="h-5 w-5" />
+                <span>contact@good.garden</span>
+              </a>
+              <a href="tel:+71234567890" className="flex items-center gap-3 transition-colors hover:text-primary">
+                <Phone className="h-5 w-5" />
+                <span>+7 (123) 456-78-90</span>
+              </a>
+            </div>
+            <form className="mt-12 space-y-6" onSubmit={handleSubmit}>
+              <Input
+                placeholder="Ваше имя"
+                className="h-12 text-base"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+              <Input
+                type="email"
+                placeholder="Ваш Email"
+                className="h-12 text-base"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <Textarea
+                placeholder="Ваше сообщение"
+                className="min-h-[150px] text-base"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
+              />
               <Button type="submit" className="w-full h-12 text-lg">Отправить сообщение</Button>
             </form>
           </div>
