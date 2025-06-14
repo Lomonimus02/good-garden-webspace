@@ -155,17 +155,17 @@ const Index = () => {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-16 md:py-24">
-          <div className="container max-w-2xl mx-auto">
+        <section id="contact" className="py-16 md:py-24 bg-secondary">
+          <div className="container max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center">Свяжитесь с нами</h2>
             <p className="mt-4 text-center text-muted-foreground">
               Готовы начать свой проект? Напишите нам сегодня.
             </p>
-            <form className="mt-12 space-y-4">
-              <Input placeholder="Ваше имя" />
-              <Input type="email" placeholder="Ваш Email" />
-              <Textarea placeholder="Ваше сообщение" />
-              <Button type="submit" className="w-full">Отправить сообщение</Button>
+            <form className="mt-12 space-y-6">
+              <Input placeholder="Ваше имя" className="h-12 text-base" />
+              <Input type="email" placeholder="Ваш Email" className="h-12 text-base" />
+              <Textarea placeholder="Ваше сообщение" className="min-h-[150px] text-base" />
+              <Button type="submit" className="w-full h-12 text-lg">Отправить сообщение</Button>
             </form>
           </div>
         </section>
