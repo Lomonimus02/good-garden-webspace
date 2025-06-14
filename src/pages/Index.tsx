@@ -63,7 +63,9 @@ const Index = () => {
             <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-white/90">
               Мы создаем красивые, экологичные и функциональные ландшафты, которые вы полюбите.
             </p>
-            <Button size="lg" className="mt-8">Получить бесплатную консультацию</Button>
+            <Button size="lg" className="mt-8" asChild>
+              <a href="#contact">Получить бесплатную консультацию</a>
+            </Button>
           </div>
         </section>
 
