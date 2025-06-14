@@ -104,7 +104,7 @@ const Index = () => {
               От проектирования до реализации — мы предлагаем полный спектр услуг по озеленению.
             </p>
             <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              <Card>
+              <Card className="transition-transform duration-300 hover:scale-105">
                 <CardHeader className="flex flex-row items-center gap-4">
                   <div className="p-3 bg-primary/10 rounded-full">
                     <Flower className="h-6 w-6 text-primary" />
@@ -115,7 +115,7 @@ const Index = () => {
                   <p>Креативные и индивидуальные проекты, отражающие ваш стиль и повышающие ценность вашей недвижимости.</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="transition-transform duration-300 hover:scale-105">
                 <CardHeader className="flex flex-row items-center gap-4">
                   <div className="p-3 bg-primary/10 rounded-full">
                     <Trees className="h-6 w-6 text-primary" />
@@ -126,7 +126,7 @@ const Index = () => {
                   <p>Профессиональная посадка растений, деревьев, укладка покрытий и установка систем полива.</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="transition-transform duration-300 hover:scale-105">
                 <CardHeader className="flex flex-row items-center gap-4">
                   <div className="p-3 bg-primary/10 rounded-full">
                     <Sun className="h-6 w-6 text-primary" />
