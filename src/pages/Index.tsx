@@ -1,8 +1,15 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { Leaf, Flower, Trees, Sun, Star, Mail, Phone } from "lucide-react";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
@@ -11,6 +18,8 @@ const Index = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,6 +40,11 @@ const Index = () => {
     setName("");
     setEmail("");
     setMessage("");
+  };
+
+  const handleImageClick = (index: number) => {
+    setSelectedImageIndex(index);
+    setIsGalleryOpen(true);
   };
 
   const galleryImages = [
@@ -168,7 +182,7 @@ const Index = () => {
             </p>
             <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-4">
               {galleryImages.map((image, index) => (
-                <div key={index} className="overflow-hidden rounded-lg">
+                <div key={index} className="overflow-hidden rounded-lg cursor-pointer" onClick={() => handleImageClick(index)}>
                   <img src={image.src} alt={image.alt} className="h-full w-full object-cover aspect-square transition-transform duration-300 hover:scale-105" />
                 </div>
               ))}
@@ -245,6 +259,30 @@ const Index = () => {
             </form>
           </div>
         </section>
+
+        <Dialog open={isGalleryOpen} onOpenChange={setIsGalleryOpen}>
+          <DialogContent className="max-w-5xl w-full">
+            <Carousel
+              opts={{
+                startIndex: selectedImageIndex,
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent>
+                {galleryImages.map((image, index) => (
+                  <CarouselItem key={index}>
+                    <div className="flex justify-center items-center">
+                      <img src={image.src} alt={image.alt} className="w-auto h-auto max-w-full max-h-[80vh] object-contain rounded-md" />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </DialogContent>
+        </Dialog>
       </main>
 
       {/* Footer */}
