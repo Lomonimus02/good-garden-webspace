@@ -261,7 +261,7 @@ const Index = () => {
         </section>
 
         <Dialog open={isGalleryOpen} onOpenChange={setIsGalleryOpen}>
-          <DialogContent className="w-auto max-w-[90vw] p-0 bg-transparent border-none shadow-none">
+          <DialogContent hideCloseButton className="w-auto max-w-[90vw] p-0 bg-transparent border-none shadow-none">
             <Carousel
               opts={{
                 startIndex: selectedImageIndex,
