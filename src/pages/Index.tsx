@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -137,7 +138,7 @@ const Index = () => {
             </p>
             <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {testimonials.map((testimonial, index) => (
-                <Card key={index} className="flex flex-col">
+                <Card key={index} className="flex flex-col transition-transform duration-300 hover:scale-105">
                   <CardContent className="pt-6 flex-1 flex flex-col">
                     <div className="flex items-center mb-4">
                       {Array.from({ length: testimonial.rating }).map((_, i) => (
