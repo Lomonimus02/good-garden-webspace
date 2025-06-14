@@ -1,9 +1,8 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Leaf, Flower, Trees, Sun } from "lucide-react";
+import { Leaf, Flower, Trees, Sun, Star } from "lucide-react";
 
 const Index = () => {
   const galleryImages = [
@@ -13,6 +12,24 @@ const Index = () => {
     { src: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&auto=format&fit=crop", alt: "Pine trees in a garden" },
     { src: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=800&auto=format&fit=crop", alt: "Sunlight through leaves" },
     { src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&auto=format&fit=crop", alt: "Scenic mountain view" },
+  ];
+
+  const testimonials = [
+    {
+      quote: "Команда good garden превзошла все наши ожидания. Наш сад теперь — наше любимое место в доме. Профессионализм на высшем уровне!",
+      name: "Анна и Виктор",
+      rating: 5,
+    },
+    {
+      quote: "Потрясающий дизайн и внимание к деталям. Весь процесс, от концепции до реализации, прошел гладко и в срок. Очень рекомендую!",
+      name: "Елена С.",
+      rating: 5,
+    },
+    {
+      quote: "Спасибо за прекрасную работу! Наш задний двор превратился в настоящий райский уголок. Дети в восторге от новой лужайки.",
+      name: "Семья Ивановых",
+      rating: 5,
+    },
   ];
 
   return (
@@ -27,6 +44,7 @@ const Index = () => {
           <nav className="flex items-center space-x-6 text-sm font-medium ml-auto">
             <a href="#services" className="transition-colors hover:text-foreground/80 text-foreground/60">Услуги</a>
             <a href="#gallery" className="transition-colors hover:text-foreground/80 text-foreground/60">Галерея</a>
+            <a href="#testimonials" className="transition-colors hover:text-foreground/80 text-foreground/60">Отзывы</a>
             <a href="#contact" className="transition-colors hover:text-foreground/80 text-foreground/60">Контакты</a>
           </nav>
         </div>
@@ -105,6 +123,31 @@ const Index = () => {
                 <div key={index} className="overflow-hidden rounded-lg">
                   <img src={image.src} alt={image.alt} className="h-full w-full object-cover aspect-square transition-transform duration-300 hover:scale-105" />
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section id="testimonials" className="py-16 md:py-24">
+          <div className="container">
+            <h2 className="text-3xl md:text-4xl font-bold text-center">Что говорят наши клиенты</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground">
+              Мы гордимся доверием, которое нам оказывают.
+            </p>
+            <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {testimonials.map((testimonial, index) => (
+                <Card key={index} className="flex flex-col">
+                  <CardContent className="pt-6 flex-1 flex flex-col">
+                    <div className="flex items-center mb-4">
+                      {Array.from({ length: testimonial.rating }).map((_, i) => (
+                        <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                      ))}
+                    </div>
+                    <blockquote className="text-muted-foreground italic flex-1">"{testimonial.quote}"</blockquote>
+                    <p className="mt-4 font-semibold text-right">- {testimonial.name}</p>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </div>
